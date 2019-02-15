@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrismNavigationDemo.Views.MainPage"
+             Title="{Binding Title}"
+             BackgroundColor="Aqua">
+    <StackLayout HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="CenterAndExpand">
+        <Label Text="It is MAIN page." />
+
+        <Button Text=" Async OnNavigatingTo Exception (app Crash)"
+                Command="{Binding NavigateToExistingFailedPageCommand}"/>
+
+        <Button Text=" Async OnNavigatingTo FinishesLate"
+                Command="{Binding NavigateToExistingSuccessPageCommand}"/>
+
+        <Button Text="Task.Run OnNavigatingToAsync Throws"
+                Command="{Binding NavigateToTaskFactoryStartNewFailedPageCommand}"/>
+
+        <Button Text="Task.Run OnNavigatingToAsync Blocks UI"
+                Command="{Binding NavigateToTaskFactoryStartNewSuccessPageCommand}"/>
+
+        <Label Text="{Binding NavigateToPageCommandResult}"/>
+
+        <Button Text="Wait DeadLocks Application" Command="{Binding NavigateToDeadLockPageCommand}"/>
+    </StackLayout>
+</ContentPage>
